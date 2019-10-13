@@ -23,7 +23,7 @@ TwitchAccounts.requestCredential = function (options, credentialRequestCompleteC
     var flatScope = _.map(scope, encodeURIComponent).join('+');
 
     var loginUrl =
-        "https://api.twitch.tv/kraken/oauth2/authorize" +
+        "https://id.twitch.tv/oauth2/token" +
         "?response_type=code" +
         "&client_id=" + config.clientId +
         "&redirect_uri=" + OAuth._redirectUri('twitch', config) +

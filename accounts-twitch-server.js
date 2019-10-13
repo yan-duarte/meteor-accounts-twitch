@@ -27,7 +27,7 @@ var getTokenResponse = function (query) {
     var response;
     try {
         response = HTTP.post(
-            "https://api.twitch.tv/kraken/oauth2/token", {
+            "https://id.twitch.tv/oauth2/token", {
                 params: {
                     code: query.code,
                     client_id: config.clientId,
@@ -54,7 +54,7 @@ var getTokenResponse = function (query) {
 var getUser = function (accessToken) {
     try {
         return HTTP.get(
-            "https://api.twitch.tv/kraken/user",
+            "https://id.twitch.tv/oauth2/userinfo",
             {headers: {"Authorization": "OAuth " + accessToken}}).data;
     } catch (err) {
         throw _.extend(new Error("Failed to fetch identity from Twitch. " + err.message),
